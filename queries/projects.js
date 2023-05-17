@@ -2,8 +2,8 @@ const db = require("../db/dbConfig");
 
 const getAllProjects = async () => {
     try {
-        const projects = await db.any(`SELECT * FROM projects`);
-        return { projects };
+        const allProjects = await db.any(`SELECT * FROM projects`);
+        return { allProjects };
     } catch (error) {
         return { error: error };
     }
@@ -72,6 +72,7 @@ const updateProject = async (id, project) => {
             project.is_favorite,
             project.created_on,
             project.updated_on,
+            id
           ]
         );
         return { updatedProject };

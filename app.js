@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 // CONTROLLERS
+const projectsController = require('./controllers/projectsController');
 
 // CONFIGURATION
 const app = express();
@@ -15,6 +16,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Welcome to DevStack");
 });
+
+app.use('/projects', projectsController);
 
 
 module.exports = app;
