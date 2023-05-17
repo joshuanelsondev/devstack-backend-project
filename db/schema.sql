@@ -12,6 +12,6 @@ CREATE TABLE projects (
  github_link VARCHAR(200),
  demo_link VARCHAR(200),
  is_favorite BOOLEAN,
- created_at DATE,
- updated_at DATE 
+ created_on DATE,
+ updated_on DATE 
 );
