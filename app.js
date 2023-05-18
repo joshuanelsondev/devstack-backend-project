@@ -17,11 +17,12 @@ app.get("/", (req, res) => {
   res.send("Welcome to DevStack");
 });
 
+app.use('/projects', projectsController);
+
 app.get("*", (req, res) => {
   res.status(404).send("Page not found");
 });
 
-app.use('/projects', projectsController);
 
 
 module.exports = app;
