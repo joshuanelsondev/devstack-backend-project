@@ -9,7 +9,6 @@
     "db:init": "psql -f db/schema.sql",
     "db:seed": "psql -f db/seed.sql",
     "isd": "npm run db:init && npm run db:seed && npm run dev"
-
   },
   "keywords": [
     "dev",
