@@ -29,7 +29,7 @@ projects.get('/:id', async (req, res) => {
 
     if (error) {
         console.log(error);
-        return res.status(500).json({ error: "server error" });
+        return res.status(404).json({ error: "Project Not Found" });
     } else {
         return res.status(200).json(project);
     }
@@ -44,7 +44,7 @@ projects.post('/', async (req, res) => {
         console.log(error);
         return res.status(500).json({ error: "server error" });
     } else {
-        return res.status(200).json(createdProject);
+        return res.status(201).json(createdProject);
     }
 });
 
@@ -69,9 +69,9 @@ projects.delete('/:id', async (req, res) => {
 
     if (error) {
         console.log(error);
-        return res.status(500).json({ error: "server error"});
+        return res.status(404).json({ error: "Project Not Found"});
     } else {
-        return res.status(200).json(deletedProject);
+        return res.status(201).json(deletedProject);
     }
 });
 
