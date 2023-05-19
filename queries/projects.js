@@ -22,9 +22,9 @@ const createProject = async (project) => {
     try {
         const createdProject = await db.one(
             `INSERT INTO
-              projects(title, description, tech, image, github_link, demo_link, is_favorite, created_on, updated_on)
+              projects(title, description, tech, image, github_link, demo_link, is_favorite, created_on)
              VALUES
-              ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+              ($1, $2, $3, $4, $5, $6, $7, $8)
              RETURNING *;`,
              [
                 project.title,
@@ -34,8 +34,7 @@ const createProject = async (project) => {
                 project.github_link,
                 project.demo_link,
                 project.is_favorite,
-                project.created_on,
-                project.updated_on
+                project.created_on
              ]);
              return { createdProject };
     } catch (error) {
@@ -58,9 +57,9 @@ const updateProject = async (id, project) => {
           `UPDATE 
               projects 
              SET 
-              title=$1, description=$2, tech=$3, image=$4, github_link=$5, demo_link=$6, is_favorite=$7, created_on=$8, updated_on=$9 
+              title=$1, description=$2, tech=$3, image=$4, github_link=$5, demo_link=$6, is_favorite=$7, updated_on=$8
              WHERE 
-              id=$10 
+              id=$9 
              RETURNING *`,
           [
             project.title,
@@ -70,7 +69,6 @@ const updateProject = async (id, project) => {
             project.github_link,
             project.demo_link,
             project.is_favorite,
-            project.created_on,
             project.updated_on,
             id
           ]
