@@ -68,6 +68,8 @@ projects.delete('/:id', async (req, res) => {
     const { error, deletedProject } = await deleteProject(id);
 
     if (error) {
+        console.log("test");
+
         console.log(error);
         return res.status(404).json({ error: "Project Not Found"});
     } else {
