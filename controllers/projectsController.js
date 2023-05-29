@@ -12,7 +12,8 @@ const {
 // INDEX
 projects.get('/', async (req, res) => {
     const { error, allProjects } = await getAllProjects();
-    allProjects.sort((projectA, projectB) => projectA.id - projectB.id);
+    console.log(allProjects)
+    // allProjects.sort((projectA, projectB) => projectA.created_on - projectB.created_on);
 
     if (error) {
         console.log(error);
